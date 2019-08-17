@@ -1,0 +1,14 @@
+#Getting the image
+FROM node:alpine
+WORKDIR /app
+
+#Building the image.
+COPY package.json .
+RUN npm install
+
+# IF you are pointing this folder back to your local during dev. 
+#  you can remove this line here.
+COPY . .
+
+# Start command.
+CMD ["npm", "run", "start"]
