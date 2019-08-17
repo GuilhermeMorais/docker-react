@@ -3,7 +3,7 @@ FROM node:alpine AS build
 WORKDIR /app
 
 #Building the image.
-COPY package.json .
+COPY package.json ./
 RUN npm install
 
 COPY . .
@@ -11,6 +11,7 @@ RUN npm run build
 
 # Getting the image to create the live container
 FROM nginx
+EXPOSE 80
 COPY --from=build /app/build /usr/share/nginx/html
 
 # Start command.

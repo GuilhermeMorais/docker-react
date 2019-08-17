@@ -3,7 +3,7 @@ FROM node:alpine
 WORKDIR /app
 
 #Building the image.
-COPY package.json .
+COPY package.json ./
 RUN npm install
 
 # IF you are pointing this folder back to your local during dev. 
